@@ -3,7 +3,7 @@
 
 class Producto extends Conectar {
     //TODO; Extraer todos los datos de la bd
-    public function getProducto() {
+    public function getProduct() {
         $connectar = parent::Conexion();
         parent::setNames();
 

@@ -790,6 +790,8 @@
 
     <!-- tap to top start -->
     <?php require_once '../template/js.php'; ?>
+
+    <script type="text/javascript" src="cart.js"></script>
 </body>
 
 </html>
