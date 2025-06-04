@@ -30,7 +30,7 @@ switch($_GET['opciones']) {
             "iTotalRecords"=>count($data),
             "iTotalDisplayRecords"=>count($data),
             "aaData"=>$data);
-            echo json_encode($results);
+            echo json_encode($result);
             break;
     case "mostrar":
         //TODO; Se obtiene la informacion del producto con el id enviado

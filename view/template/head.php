@@ -32,3 +32,4 @@
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
     
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css">
