@@ -3,10 +3,13 @@ const btnCerrar = document.getElementById('btncerrar');
 let tabla;
 let detalles =[];
 const tbody = document.getElementById('listDetalle');
+const btnPay = document.getElementById('btn-pay');
+const btnReturnPage = document.getElementById('returnPage');
+const btnPaypal = document.getElementById('btnPaypal');
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    $("#pnlcheckout").hide();
+    $("#page-checkout").hide();
 
     tabla=$('#lista_data').dataTable({
         "aProcessing": true,
@@ -60,6 +63,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }).DataTable();
 })
+
+
+btnPay.addEventListener('click', () => {
+    if(detalles.length <= 0) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'No hay productos',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        })
+    }else {
+        $("#page-cart").hide();
+        $("#page-checkout").show();
+    }
+    
+
+})
+
+btnReturnPage.addEventListener('click', (e) => {
+    e.preventDefault();
+    $("#page-checkout").hide();
+    $("#page-cart").show();
+
+    listarDetallesCheckout();
+
+})
+
+
 
 
 
@@ -174,6 +205,45 @@ function calcularTotales() {
 
 
     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Checkout* */
+
+function listarDetallesCheckout(){
+    $('#listDetalleCheckout').html('');
+    var filas = "";
+    var det_total = 0;
+    var vent_total = 0;
+
+    for(var i=0; i<detalles.length;i++){
+        var det_total = detalles[i].det_total = detalles[i].det_cant * detalles[i].prod_precio;
+        var filas = filas + "<li>"+ detalles[i].prod_nom + " × " + detalles[i].det_cant + "<span>" + detalles[i].det_total +"</span></li>"
+
+        vent_total = vent_total + det_total;
+    }
+
+    $('#listDetalleCheckout').html(filas);
+    $('#subtotalCheckout').html("USD "+vent_total);
+    $('#totalCheckout').html("USD "+vent_total);
+
+    const ventTotal = document.getElementById('vent_total');
+    ventTotal.value = vent_total;
 }
 
 init();
