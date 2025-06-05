@@ -90,6 +90,23 @@ btnReturnPage.addEventListener('click', (e) => {
 
 })
 
+btnPaypal.addEventListener('click', (e) => {
+    e.preventDefault();
+    let vent_total = $("#vent_total").val();
+
+    $.ajax({ 
+        url:"../../controller/paypal.php?opciones=pagar",
+        method: "POST",
+        data:{'detalles':JSON.stringify(detalles), vent_total:vent_total},
+        cache: false,
+        dataType: "html",
+        success: function(data) {
+            window.open(data, '_blank');
+        }
+    })
+
+})
+
 
 
 
