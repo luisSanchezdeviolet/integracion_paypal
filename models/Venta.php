@@ -46,4 +46,43 @@ class Venta extends Conectar {
 
         return true;
     }
+
+
+    public function getVentaById($vent_id) {
+        $connectar = parent::Conexion();
+        parent::setNames();
+
+        $sql = "SELECT * from tm_venta WHERE vent_id = ?";
+        $sql = $connectar->prepare($sql);
+        $sql->bindValue(1, $vent_id);
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
+
+    public function getDetalleById($vent_id) {
+        $connectar = parent::Conexion();
+        parent::setNames();
+
+        $sql = "SELECT * from tm_detalle WHERE vent_id = ?";
+        $sql = $connectar->prepare($sql);
+        $sql->bindValue(1, $vent_id);
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
+
+    public function update_venta($vent_id, $paymentId, $token, $PayerID, $json_data) {
+        $connectar = parent::Conexion();
+        parent::setNames();
+
+        $sql = "UPDATE tm_venta SET paymentId = ?, token = ?, PayerID = ?, json = ? WHERE vent_id = ?";
+        $sql = $connectar->prepare($sql);
+        $sql->bindValue(1, $paymentId);
+        $sql->bindValue(2, $token);
+        $sql->bindValue(3, $PayerID);
+        $sql->bindValue(4, $json_data);
+        $sql->bindValue(5, $vent_id);
+
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
 }

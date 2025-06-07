@@ -24,4 +24,7 @@ class Producto extends Conectar {
         $sql->execute();
         return $resultado = $sql->fetchAll();
     }
+
+
+    
 }

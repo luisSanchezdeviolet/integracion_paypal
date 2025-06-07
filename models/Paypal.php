@@ -92,5 +92,17 @@
 		    return $redirectUrl;
         }
 
+        public function getValidarPaypal($paymentId, $PayerId)  {
+            require '../include/bootstrap.php';
+            $payment = Payment::get($paymentId, $apiContext);
+            $execution = new PaymentExecution();
+            $execution->setPayerId($PayerId);
+
+            $payment->execute($execution, $apiContext);
+            $datosTransaccion = $payment->toJSON();
+
+            return $datosTransaccion;
+        }
+
     }
 ?>

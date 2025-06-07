@@ -4,6 +4,8 @@ require_once '../config/connection.php';
 require_once '../models/Paypal.php';
 require_once '../models/Venta.php';
 
+require_once '../include/bootstrap.php';
+
 $venta = new Venta();
 $paypal = new Paypal();
 
@@ -54,4 +56,11 @@ switch($_GET['opciones']) {
         
        echo $datos;
        break;
+
+    case "validar": 
+        $datos = $paypal->getValidarPaypal($_POST['paymentId'], $_POST['PayerID']);
+        echo $datos;
+
+
+        break;
 }

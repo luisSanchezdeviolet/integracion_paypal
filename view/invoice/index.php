@@ -53,24 +53,24 @@
                                     <div class="col-xxl-8 col-md-7">
                                         <div class="address-detail">
                                             <div class="mt-2">
-                                                <h4 class="mb-2">
-                                                    2664 Tail Ends Road,
+                                                <h4 class="mb-2" id="vent_nom_ape">
+
                                                 </h4>
-                                                <h4 class="mb-2"> ORADELL, New Jersey</h4>
-                                                <h4 class="mb-0">NJ, 07649</h4>
+                                                <h4 class="mb-2" id="vent_dire"></h4>
+                                                <h4 class="mb-0" id="vent_pais"></h4>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xxl-4 col-md-5">
                                         <ul class="date-detail">
-                                            <li><span>issue date :</span>
-                                                <h4> 20 march, 2020</h4>
+                                            <li><span>Departamento:</span>
+                                                <h4 id="vent_depa"></h4>
                                             </li>
-                                            <li><span>invoice no :</span>
-                                                <h4> 908452</h4>
+                                            <li><span>Codigo Postal:</span>
+                                                <h4 id="vent_postal"></h4>
                                             </li>
-                                            <li><span>email :</span>
-                                                <h4> user@gmail.com</h4>
+                                            <li><span>Email</span>
+                                                <h4 id="vent_email"></h4>
                                             </li>
                                         </ul>
                                     </div>
@@ -93,42 +93,13 @@
                                     <table class="table table-borderless table-striped mb-0">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">description</th>
-                                                <th scope="col">price</th>
-                                                <th scope="col">hrs.</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Precio</th>
+                                                <th scope="col">Cantidad</th>
                                                 <th scope="col">total</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Logo Designing</td>
-                                                <td>$50</td>
-                                                <td>2</td>
-                                                <td>$100</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>website & banner design</td>
-                                                <td>$30</td>
-                                                <td>3</td>
-                                                <td>$90</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>frontend development</td>
-                                                <td>$95</td>
-                                                <td>1</td>
-                                                <td>$95</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>backend development</td>
-                                                <td>$95</td>
-                                                <td>1</td>
-                                                <td>$95</td>
-                                            </tr>
+                                        <tbody id="listdetalle">
                                         </tbody>
                                     </table>
                                 </div>
