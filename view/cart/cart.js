@@ -77,7 +77,7 @@ btnPay.addEventListener('click', () => {
         $("#page-cart").hide();
         $("#page-checkout").show();
     }
-    
+    listarDetallesCheckout();
 
 })
 
@@ -86,18 +86,28 @@ btnReturnPage.addEventListener('click', (e) => {
     $("#page-checkout").hide();
     $("#page-cart").show();
 
-    listarDetallesCheckout();
 
 })
 
 btnPaypal.addEventListener('click', (e) => {
     e.preventDefault();
+
+    let vent_nombre = $("#vent_nom").val();
+    let vent_apellido = $("#vent_ape").val();
+    let vent_email = $("#vent_email").val();
+    let vent_telefono = $("#vent_telf").val();
+    let vent_direccion = $("#vent_dire").val();
+    let vent_pais = $("#vent_pais").val();
+    let vent_depa = $("#vent_depa").val();
+    let vent_cp = $("#vent_codpostal").val();
+
+
     let vent_total = $("#vent_total").val();
 
     $.ajax({ 
         url:"../../controller/paypal.php?opciones=pagar",
         method: "POST",
-        data:{'detalles':JSON.stringify(detalles), vent_total:vent_total},
+        data:{'detalles':JSON.stringify(detalles), vent_total:vent_total, vent_nom:vent_nombre, vent_ape:vent_apellido, vent_email:vent_email, vent_telf:vent_telefono, vent_dire:vent_direccion, vent_pais:vent_pais, vent_depa:vent_depa, vent_codpostal:vent_cp},
         cache: false,
         dataType: "html",
         success: function(data) {
@@ -144,7 +154,6 @@ function agregar(prod_id) {
             detalles.push(obj);
             listarDetalles();
             $('#mymodal').modal('hide');
-            console.log(detalles)
         }
     })
 }
@@ -254,6 +263,7 @@ function listarDetallesCheckout(){
 
         vent_total = vent_total + det_total;
     }
+    console.log(vent_total);
 
     $('#listDetalleCheckout').html(filas);
     $('#subtotalCheckout').html("USD "+vent_total);
